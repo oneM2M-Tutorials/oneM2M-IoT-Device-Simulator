@@ -1,0 +1,77 @@
+{
+	"cse":{
+		"ip":"127.0.0.1",
+		"port": 8080,
+		"id":"CseId",
+		"name":"CseName",
+		"release":"1",
+		"acp_required":false
+	},
+	"app":{
+		"ip":"127.0.0.1",
+		"port":80
+	},
+	"templates":[
+		{
+			"stream":"up",			
+			"type": "Temperature",		
+			"unit": "°C",
+			"min":18,
+			"max":22,
+			"freq":10,
+			"icon":"https://cdn3.iconfinder.com/data/icons/spa-massage-treatment-beauty-2/50/104-512.png"
+		},
+		{
+			"stream":"up",			
+			"type": "Humidity",		
+			"unit": "%",
+			"min":40,
+			"max":50,
+			"freq":10,
+			"icon":"https://cdn1.iconfinder.com/data/icons/weather-forecast-31/650/water-humidity-precipitation-512.png"
+		},	
+		{
+			"stream":"up",			
+			"type": "Luminosity",		
+			"unit": "Lux",
+			"min":200,
+			"max":900,
+			"freq":10,
+			"icon": "https://cdn6.aptoide.com/imgs/e/c/8/ec8886b69b83cd16b437190a38fe5007_icon.png"
+		},
+		{
+			"stream":"up",			
+			"type": "Power",		
+			"unit": "Kw",
+			"min":1000,
+			"max":2000,
+			"freq":10,
+			"icon":"https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/parking_meter.png"
+		},
+		{
+			"stream":"up",			
+			"type": "Presence",		
+			"unit": "",
+			"min":0,
+			"max":1,
+			"freq":10,
+			"icon": "https://hackaday.com/wp-content/uploads/2016/08/arduino-motion-thumb.jpg"
+		},
+		{
+			"stream":"down",			
+			"type": "Lamp",		
+			"unit": "",
+			"min":0,
+			"max":1,
+			"icon":"https://download.seaicons.com/icons/paomedia/small-n-flat/1024/light-bulb-icon.png"
+		},
+		{
+			"stream":"down",			
+			"type": "buzzer",	
+			"unit": "",
+			"min":0,
+			"max":1,
+			"icon":"https://image.flaticon.com/icons/svg/216/216295.svg"
+		}
+	]
+}

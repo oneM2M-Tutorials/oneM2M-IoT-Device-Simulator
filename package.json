@@ -1,0 +1,20 @@
+{
+  "lockfileVersion": 1,
+  "name": "onem2m-virtual-devices",
+  "version": "1.0.0",
+  "main": "device.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "find-free-port": "^2.0.0",
+    "hashmap": "^2.4.0",
+    "request": "^2.88.2"
+  }
+}

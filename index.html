@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>oneM2M Device simulator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+<script>
+var templates;
+
+$.ajax({ 
+        type : "GET", 
+        url : "templates",
+        body:"json",
+        success : function(body,code) { 
+            templates=body;
+            console.log(templates);
+            for(var i=0;i<templates.length;i++){
+                $('#type').append("<option value="+i+">"+templates[i].type+"</option>");
+            }
+        }, 
+        error : function(body,status,error) { 
+
+        } 
+    }); 
+displayDevices();
+setInterval(displayDevices, 2000);
+
+function displayDevices(){
+    var focus = document.activeElement.id;
+    if(focus!==""){
+        value=document.getElementById(focus).value;
+
+    }
+
+    $.ajax({ 
+        type : "GET", 
+        url : "devices",
+        body:"json",
+        success : function(body,code) { 
+            devices=body;
+            console.log(devices);
+            $('#cards').html("");
+            for(var i=0;i<devices.length;i++){
+                var display ="";
+                if(devices[i].stream=="down"){
+             // onclick="updateDevice(\''+devices[i].typeIndex+'\',\''+devices[i].name+'\',\''+val+'\')"
+                    val=0;
+                    display = 
+                    '<form name="myForm" onsubmit="return updateDevice(\''+devices[i].typeIndex+'\',\''+devices[i].name+'\',\''+i+'\')" >\
+                    <div class="col-12">\
+                        <input required="true" class="form-control col-6 pull-left" id="'+i+'" >\
+                        <button type="submit"  class="btn btn-outline-secondary col-6 pull-right">Update</button>\
+                    </div>\
+                    </form>'
+                }else{
+                    display='<h5>-</h5>'
+                }
+                $('#cards').append(
+                    '<div class="col-sm-2">\
+                        <div class="card text-center" style="width: 15rem;margin-bottom:30px">\
+                            <img src="'+devices[i].icon+'"  alt="Avatar" style="width:100%">\
+                            <div class="card-body">\
+                                <h1><span class="badge badge-success">'+ devices[i].data+" "+devices[i].unit+'</span></h1>'
+                                +display+'\
+                                <h4 class="font-weight-bold">'+ devices[i].type+'</h4>\
+                                <h5>'+ devices[i].name+'</h5>\
+                                <button type="button"  onclick="deleteDevice(\''+devices[i].name+'\')" class="btn btn-outline-danger">Delete</button>\
+                            </div>\
+                        </div>\
+                    </div>'    
+                );
+            }
+            console.log("aa"+document.activeElement.id);
+            if(focus!==""){
+                document.getElementById(focus).focus();
+                document.getElementById(focus).value=value;
+            }
+        }, 
+        error : function(body,status,error) { 
+
+        } 
+    });
+   
+}
+
+function deleteDevice(name) {
+
+    $.ajax({ 
+        type : "DELETE", 
+        url : "devices/"+name,
+        success : function(body,code) { 
+            console.log(code);
+            console.log(body);
+            displayDevices();
+
+        }, 
+        error : function(body,status,error) { 
+
+        } 
+    }); 
+}
+
+function createDevice() {
+    var type = document.getElementById('type').value;
+    var name = document.getElementById('name').value;;
+
+    if (name == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+
+    $.ajax({ 
+        type : "POST", 
+        url : "devices?type="+type+"&name="+name,
+        success : function(body,code) { 
+            console.log(code);
+            console.log(body);
+        }, 
+        error : function(body,status,error) { 
+
+        } 
+    }); 
+}
+
+function updateDevice(typeIndex,name, id) {
+    var value = document.getElementById(id).value;
+    $.ajax({ 
+        type : "POST", 
+        url : "devices/"+name+"?typeIndex="+typeIndex+"&value="+value,
+        success : function(body,code) { 
+            console.log(code);
+            console.log(body);
+            displayDevices();
+
+        }, 
+        error : function(body,status,error) { 
+
+        } 
+    }); 
+}
+
+</script>
+
+
+<div class="container col-sm-4">      
+
+        <form name="myForm" onsubmit="return createDevice()" >
+
+            <div class="form-group">
+    
+                <label for="type">Type:</label>
+                <select id="type" class="form-control">
+                </select>
+            </div>
+            <div class="form-group">
+
+               
+                <label for="name">Name:</label>
+                <input  required="true" class="form-control" id="name" >
+            </div>
+            <button type="submit" class="btn btn-primary pull-right">Create new device</button>
+    
+        </form>
+    </div>
+<br/>
+<br/>
+
+<div class="border-top my-3 "></div>
+
+
+ 
+        <div id="cards" class="row">
+
+        
+        </div>
+
+
+
+</div>
+
+</body>
+<html>
+
