@@ -88,7 +88,12 @@ function listen(name,typeIndex){
 		console.log(templates[typeIndex].type+" "+name+" is switched to "+content);
 		
 		updateDevice(typeIndex, name, content);
-		res.sendStatus(200);
+		res.set("X-M2M-RSC",2000);
+		res.status(200);
+		if(cseRelease != "1") {
+			res.set("X-M2M-RVI",cseRelease);
+		}
+		res.send();
 	});
 }
 
