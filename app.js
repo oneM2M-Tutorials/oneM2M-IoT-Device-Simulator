@@ -11,6 +11,9 @@ var map = new hashmap();
 
 app.use(bodyParser.json({type : ['application/*+json','application/json']}));
 
+// Define the static file path
+app.use(express.static(__dirname + '/public'));
+
 var csePoA = "http://"+config.cse.ip+":"+config.cse.port;
 var cseRelease = config.cse.release;
 var deviceTypes = new hashmap();
