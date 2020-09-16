@@ -1,6 +1,5 @@
 # oneM2M-IoT-Device-Simulator
 
-<h4>Known issue: The tool does not work with Firefox browser but is fine with Chrome or Edge.</h4>
 =========================================================================================
 
 1. Create simulated devices
