@@ -14,9 +14,9 @@ Install the required node modules using the following command:
 You can keep the default configuration for a local demonstration.
 If needed, you can change the configuration by editing the config file “default.json” file located in the "config" folder using a text editor.
 Before starting the oneM2M simulator, if needed, you can update the target oneM2M platform by editing the "cse" section:
-
+````
 {
-    "cse":{
+   "cse":{
         "ip":"127.0.0.1",
         "port": 8080,
         "id":"server",
@@ -24,8 +24,9 @@ Before starting the oneM2M simulator, if needed, you can update the target oneM2
     },
     ...
 }
-
+```
 You can use the same template to add your own sensors and actuators in the "templates" section (Set the "stream" attribute to "up" for sensors and "down" for actuators). Any new template added to the list will be incorporated by the simulator.
+
 "templates":[
     {
         "stream":"up",
