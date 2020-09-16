@@ -62,6 +62,8 @@ Open the simulator dashboard interface on your browser. By default the simulator
 
 1.4. Simulate virtual oneM2M devices
 You can select a type and chose a name for your device then confirm to simulate a device.
+![devices](https://hackster.imgix.net/uploads/attachments/1075568/image_nf44rXa9Kz.png?auto=compress%2Cformat&w=740&h=555&fit=max)
+
 Every simulated sensor (e.g. Temperature, Luminosity, Humidity, Power, Presence, etc.) will push data periodically to the oneM2M platform following the configuration file.
 It is possible to change the status of every simulated actuator (e.g. Lamp, Buzzer, etc.) using the "update" button. The new status will published immediately to the oneM2M platfom.
 You can delete any simulated device by clicking on the "delete" button.
