@@ -1,6 +1,6 @@
 # oneM2M-IoT-Device-Simulator
 
-##h2Known issue: The tool does not work with Firefox browser but is fine with Chrome or Edge.
+<h4>Known issue: The tool does not work with Firefox browser but is fine with Chrome or Edge.</h4>
 =========================================================================================
 
 1. Create simulated devices
@@ -58,6 +58,8 @@ Start the oneM2M device simulator using the following command:
 > sudo node app.js
 ```
 Open the simulator dashboard interface on your browser. By default the simulator is available on the following address: http://127.0.0.1:80
+<h4>Known issue: The tool does not work with Firefox browser but is fine with Chrome or Edge.</h4>
+  
 
 1.4. Simulate virtual oneM2M devices
 You can select a type and chose a name for your device then confirm to simulate a device.
