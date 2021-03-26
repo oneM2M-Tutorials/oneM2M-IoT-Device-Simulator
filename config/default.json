@@ -1,7 +1,7 @@
 {
     "cse": {
         "ip": "127.0.0.1",
-        "port": 8082,
+        "port": 8080,
         "id": "/id-in",
         "name": "cse-in",
         "release": "3",
@@ -10,7 +10,7 @@
     },
     "app": {
         "ip": "127.0.0.1",
-        "port": 8080
+        "port": 80
     },
     "templates": [{
             "stream": "up",
