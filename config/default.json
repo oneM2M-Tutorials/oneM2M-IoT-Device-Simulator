@@ -1,15 +1,16 @@
 {
     "cse": {
         "ip": "127.0.0.1",
-        "port": 8080,
-        "id": "CseId",
-        "name": "CseName",
-        "release": "1",
-        "acp_required": false
+        "port": 8082,
+        "id": "/id-in",
+        "name": "cse-in",
+        "release": "3",
+        "acp_required": true,
+		"poa_in_nu":false
     },
     "app": {
         "ip": "127.0.0.1",
-        "port": 80
+        "port": 8080
     },
     "templates": [{
             "stream": "up",

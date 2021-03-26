@@ -114,7 +114,7 @@ function createAE(name,typeIndex){
 		json: { 
 			"m2m:ae":{
 				"rn":name,			
-				"api":"app.company.com",
+				"api":"Napp.company.com",
 				"rr":false
 			}
 		}
@@ -492,13 +492,17 @@ function createSubscription(name,typeIndex){
 			"m2m:sub": {
 				"rn": "sub",
 				"nu": [config.cse.name + "/" +  name],
-				"nct": 2,
+				"nct": 1,
 				"enc": {
 					"net": [3]
 				}
 			}
 		}
 	};
+	
+	if(config.cse.poa_in_nu) {
+		options.json["m2m:sub"].nu = ["http://" + config.app.ip + ":" + config.app.port + "/" + name]; 
+	}
 
 	console.log("");
 	console.log(options.method + " " + options.uri);
