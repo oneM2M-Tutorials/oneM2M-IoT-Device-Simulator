@@ -12,7 +12,7 @@
   "description": "",
   "dependencies": {
     "config": "^3.3.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "find-free-port": "^2.0.0",
     "hashmap": "^2.4.0",
     "request": "^2.88.2"
